@@ -1,0 +1,18 @@
+課題１０
+
+1.URLとControllerやActionを紐づける機能
+→Routing
+
+2.group化することのメリット
+・複数のRoutingに同様の設定を一括して記述することで後から確認した際に、
+グループ化されたページが同じ設定を適用された分類のページであることがわかりやすくなる。
+
+3.「http://XXXXXX.jp/XXXというアクセスが来た時に、AAAControllerのbbbという
+Actionに渡すRoutingの設定」
+    Route::get('XXX', 'AAAController@bbb')
+
+4,別添web.phpのとおり
+    Route::group(['prefix' =>'admin'], function({
+        Route::get('news/create', 'Admin\NewsController@add');
+        Route::get('profile/edit', 'Admin\ProfileController@edit');
+    });
